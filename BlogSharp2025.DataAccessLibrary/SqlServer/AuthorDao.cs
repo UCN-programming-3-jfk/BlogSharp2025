@@ -1,14 +1,18 @@
 ﻿using BlogSharp2025.DataAccessLibrary.Interfaces;
 using BlogSharp2025.DataAccessLibrary.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Dapper;
 
 namespace BlogSharp2025.DataAccessLibrary.SqlServer;
-public class AuthorDao : IAuthorDao
+public class AuthorDao : BaseDao, IAuthorDao
 {
+    //constructor which passed the connectionstring to BaseDao
+    public AuthorDao(string connectionString) : base(connectionString)
+    {
+            
+    }
+
+
+
     public int Create(Author author)
     {
         throw new NotImplementedException();
@@ -21,7 +25,10 @@ public class AuthorDao : IAuthorDao
 
     public IEnumerable<Author> GetAll()
     {
-        throw new NotImplementedException();
+        var query = "SELECT * FROM Author";
+        using var connection = CreateConnection();
+        return connection.Query<Author>(query).ToList();
+
     }
 
     public Author? GetOne(int id)
