@@ -5,12 +5,9 @@ using Dapper;
 namespace BlogSharp2025.DataAccessLibrary.SqlServer;
 public class AuthorDao : BaseDao, IAuthorDao
 {
-    //constructor which passed the connectionstring to BaseDao
-    public AuthorDao(string connectionString) : base(connectionString)
-    {
-            
-    }
-
+    //constructor which passes
+    //the connectionstring to BaseDao
+    public AuthorDao(string connectionString) : base(connectionString){}
 
 
     public int Create(Author author)
@@ -28,7 +25,6 @@ public class AuthorDao : BaseDao, IAuthorDao
         var query = "SELECT * FROM Author";
         using var connection = CreateConnection();
         return connection.Query<Author>(query).ToList();
-
     }
 
     public Author? GetOne(int id)
