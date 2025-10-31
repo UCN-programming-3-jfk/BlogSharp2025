@@ -1,10 +1,5 @@
 ﻿using Microsoft.Data.SqlClient; //Sql implementation
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlogSharp2025.DataAccessLibrary.SqlServer;
 public abstract class BaseDao
