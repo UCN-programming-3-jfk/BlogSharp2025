@@ -10,5 +10,7 @@ internal class Program
 
         var authors = apiClient.GetAll();
 
+        int i = 42;
+
     }
 }

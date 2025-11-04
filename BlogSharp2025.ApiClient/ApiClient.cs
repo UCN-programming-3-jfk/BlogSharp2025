@@ -22,7 +22,21 @@ public class ApiClient : IAuthorDao, IBlogPostDao
 
     public int Create(Author author)
     {
-        throw new NotImplementedException();
+        var request = new RestRequest("authors", Method.Post);
+
+        var response = _restClient.Execute<int>(request);
+        if (response == null)
+        {
+            throw new Exception("NO response from server");
+        }
+        if (response.IsSuccessStatusCode)
+        {
+            return response.Data;
+        }
+        else
+        {
+            throw new Exception("Server reply: Unsuccessful request");
+        }
     }
 
     public int Create(BlogPost blogPost)
@@ -52,7 +66,7 @@ public class ApiClient : IAuthorDao, IBlogPostDao
         var response = _restClient.Execute<IEnumerable<Author>>(request);
         if (response == null) { 
             throw new Exception("NO response from server"); }
-        if (response.IsSuccessful)
+        if (response.IsSuccessStatusCode)
         {
             return response.Data;
         }

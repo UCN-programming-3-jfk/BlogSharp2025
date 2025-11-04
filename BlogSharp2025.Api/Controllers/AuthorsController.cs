@@ -28,4 +28,19 @@ public class AuthorsController : ControllerBase
             return StatusCode(500, $"An error occurred trying to retrieve all authors.");
         }
     }
+
+    [HttpPost]
+    public ActionResult<int> Create(Author author)
+    {
+        try
+        {
+            return Ok(_authorDao.Create(author));
+        }
+        catch (Exception ex)
+        {
+            //log the error
+
+            return StatusCode(500, $"An error occurred trying to create the author.");
+        }
+    }
 }
