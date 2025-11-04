@@ -1,10 +1,6 @@
-using System;
-using System.Linq;
 using BlogSharp2025.DataAccessLibrary.Interfaces;
 using BlogSharp2025.DataAccessLibrary.Model;
 using BlogSharp2025.DataAccessLibrary.SqlServer;
-using BlogSharp2025.DataAccessLibrary.Tools;
-using NUnit.Framework;
 
 namespace BlogSharp2025.Test.DataAccessTests;
 public class BlogPostDaoTests

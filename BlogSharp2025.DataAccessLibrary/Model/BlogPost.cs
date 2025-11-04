@@ -1,5 +1,3 @@
-using System;
-
 namespace BlogSharp2025.DataAccessLibrary.Model;
 public class BlogPost
 {
@@ -14,7 +12,6 @@ public class BlogPost
     #endregion
 
     #region Constructors
-    //System.Int32 Id, System.String Title, System.String TextBody, System.DateTime CreationDate, System.Int32 FK_Author_Id
     public BlogPost(int id, string title, string textBody, DateTime creationDate, int fK_Author_Id)
     {
         Id = id;
