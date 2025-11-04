@@ -23,20 +23,18 @@ public class ApiClient : IAuthorDao, IBlogPostDao
     public int Create(Author author)
     {
         var request = new RestRequest("authors", Method.Post);
+        request.AddJsonBody(author);
 
         var response = _restClient.Execute<int>(request);
         if (response == null)
         {
             throw new Exception("NO response from server");
         }
-        if (response.IsSuccessStatusCode)
-        {
-            return response.Data;
-        }
-        else
+        if (!response.IsSuccessStatusCode)
         {
             throw new Exception("Server reply: Unsuccessful request");
         }
+        return response.Data;
     }
 
     public int Create(BlogPost blogPost)

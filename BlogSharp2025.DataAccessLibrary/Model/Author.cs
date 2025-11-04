@@ -1,4 +1,6 @@
-﻿namespace BlogSharp2025.DataAccessLibrary.Model;
+﻿using Microsoft.Data.SqlClient.Diagnostics;
+
+namespace BlogSharp2025.DataAccessLibrary.Model;
 public class Author
 {
     #region Properties
@@ -9,6 +11,10 @@ public class Author
     #endregion
 
     #region Constructors
+    /// <summary>
+    /// Necessary (default) constructor for deserialization
+    /// </summary>
+    public Author(){}
     public Author(int id, string email, string passwordHash, string blogTitle)
     {
         Id = id;
