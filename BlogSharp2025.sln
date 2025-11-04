@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogSharp2025.Test", "BlogS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogSharp2025.Api", "BlogSharp2025.Api\BlogSharp2025.Api.csproj", "{93B6FCB8-CEAB-4CE8-AEC9-0FBC1BA7490B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogSharp2025.ApiClient", "BlogSharp2025.ApiClient\BlogSharp2025.ApiClient.csproj", "{A67464F0-BEBF-470F-85EB-77D3678EF6AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogSharp2025.ApiClientTester", "BlogSharp2025.ApiClientTester\BlogSharp2025.ApiClientTester.csproj", "{AA837F58-6CC5-428B-8B32-FBE0EE3E3097}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{93B6FCB8-CEAB-4CE8-AEC9-0FBC1BA7490B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93B6FCB8-CEAB-4CE8-AEC9-0FBC1BA7490B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93B6FCB8-CEAB-4CE8-AEC9-0FBC1BA7490B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A67464F0-BEBF-470F-85EB-77D3678EF6AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A67464F0-BEBF-470F-85EB-77D3678EF6AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A67464F0-BEBF-470F-85EB-77D3678EF6AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A67464F0-BEBF-470F-85EB-77D3678EF6AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA837F58-6CC5-428B-8B32-FBE0EE3E3097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA837F58-6CC5-428B-8B32-FBE0EE3E3097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA837F58-6CC5-428B-8B32-FBE0EE3E3097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA837F58-6CC5-428B-8B32-FBE0EE3E3097}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,6 +23,8 @@ public class AuthorsController : ControllerBase
         }
         catch (Exception ex)
         {
+            //log the error
+
             return StatusCode(500, $"An error occurred trying to retrieve all authors.");
         }
     }
