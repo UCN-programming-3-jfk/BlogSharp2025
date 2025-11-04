@@ -6,6 +6,7 @@ namespace BlogSharp2025.Api;
 
 public class Program
 {
+    //Connectionstring for use in Dependency Injection of an IAuthorDao
     private const string _connectionString = "Data Source=.;Integrated Security=True;initial catalog=BlogSharp2025; trust server certificate=true";
     public static void Main(string[] args)
     {
@@ -19,9 +20,10 @@ public class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
         //Register the AuthorDao for MSSqlServer for dependency injection
         builder.Services.AddScoped<IAuthorDao>(
-            (_) => new AuthorDao(_connectionString)            );
+            (_) => new AuthorDao(_connectionString));
 
         var app = builder.Build();
 
@@ -35,7 +37,6 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
 
         app.MapControllers();
 

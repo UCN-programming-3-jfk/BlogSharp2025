@@ -9,11 +9,21 @@ namespace BlogSharp2025.Api.Controllers;
 public class AuthorsController : ControllerBase
 {
     IAuthorDao _authorDao;
-    public AuthorsController(IAuthorDao authorDao) => _authorDao = authorDao;
+    public AuthorsController(IAuthorDao authorDao)
+    {
+        _authorDao = authorDao;
+    }
 
     [HttpGet]
-    public IEnumerable<Author> Get()
+    public ActionResult< IEnumerable<Author>> Get()
     {
-        return null;
+        try
+        {
+            return Ok(_authorDao.GetAll());
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"An error occurred trying to retrieve all authors.");
+        }
     }
 }
