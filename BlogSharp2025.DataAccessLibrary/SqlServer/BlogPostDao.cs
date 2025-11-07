@@ -32,6 +32,13 @@ public class BlogPostDao : BaseDao, IBlogPostDao
         return connection.Query<BlogPost>(query).ToList();
     }
 
+    public IEnumerable<BlogPost> GetByAuthor(int authorId)
+    {
+        var query = "SELECT * FROM BlogPost WHERE FK_Author_Id = @AuthorId";
+        using var connection = CreateConnection();
+        return connection.Query<BlogPost>(query, new { AuthorId = authorId }).ToList();
+    }
+
     public BlogPost? GetOne(int id)
     {
         var query = "SELECT * FROM BlogPost WHERE Id = @Id";

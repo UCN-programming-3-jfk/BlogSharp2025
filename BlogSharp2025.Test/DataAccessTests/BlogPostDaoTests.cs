@@ -1,8 +1,12 @@
+using System;
+using System.Linq;
 using BlogSharp2025.DataAccessLibrary.Interfaces;
 using BlogSharp2025.DataAccessLibrary.Model;
 using BlogSharp2025.DataAccessLibrary.SqlServer;
+using NUnit.Framework;
 
 namespace BlogSharp2025.Test.DataAccessTests;
+[TestFixture]
 public class BlogPostDaoTests
 {
     private const string connectionString = "Data Source=.;Integrated Security=True;initial catalog=BlogSharp2025; trust server certificate=true";
@@ -74,6 +78,41 @@ public class BlogPostDaoTests
         {
             if (createdId > 0) blogDao.Delete(createdId);
             if (authorId > 0) authorDao.Delete(authorId);
+        }
+    }
+
+    [Test]
+    public void GetByAuthor_ReturnsOnlyThatAuthorsBlogPosts()
+    {
+        var authorDao = CreateAuthorDao();
+        var blogDao = CreateBlogPostDao();
+
+        var suffix = Guid.NewGuid().ToString("N");
+        var authorId1 = authorDao.Create(NewAuthor(suffix));
+        var authorId2 = authorDao.Create(NewAuthor(suffix + "b"));
+        Assert.That(authorId1, Is.GreaterThan(0));
+        Assert.That(authorId2, Is.GreaterThan(0));
+
+        int id1 = 0;
+        int id2 = 0;
+        try
+        {
+            id1 = blogDao.Create(NewBlogPost(suffix + "1", authorId1));
+            id2 = blogDao.Create(NewBlogPost(suffix + "2", authorId2));
+            Assert.That(id1, Is.GreaterThan(0));
+            Assert.That(id2, Is.GreaterThan(0));
+
+            var postsForAuthor1 = blogDao.GetByAuthor(authorId1).ToList();
+            Assert.That(postsForAuthor1.Any(p => p.Id == id1), Is.True, "Expected created post for author1 to be returned");
+            Assert.That(postsForAuthor1.All(p => p.FK_Author_Id == authorId1), Is.True, "Expected all returned posts to belong to author1");
+            Assert.That(postsForAuthor1.Any(p => p.Id == id2), Is.False, "Expected posts from other authors not to be returned");
+        }
+        finally
+        {
+            if (id1 > 0) blogDao.Delete(id1);
+            if (id2 > 0) blogDao.Delete(id2);
+            if (authorId1 > 0) authorDao.Delete(authorId1);
+            if (authorId2 > 0) authorDao.Delete(authorId2);
         }
     }
 

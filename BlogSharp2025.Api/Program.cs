@@ -1,6 +1,7 @@
 
 using BlogSharp2025.DataAccessLibrary.Interfaces;
 using BlogSharp2025.DataAccessLibrary.SqlServer;
+using BlogSharp2025.DataAccessLibrary.Stub;
 
 namespace BlogSharp2025.Api;
 
@@ -22,8 +23,10 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         //Register the AuthorDao for MSSqlServer for dependency injection
-        builder.Services.AddScoped<IAuthorDao>(
-            (_) => new AuthorDao(_connectionString));
+        //builder.Services.AddScoped<IAuthorDao>(
+         //   (_) => new AuthorDao(_connectionString));
+
+        builder.Services.AddScoped<IAuthorDao, InMemoryAuthorDaoStub>();
 
         var app = builder.Build();
 

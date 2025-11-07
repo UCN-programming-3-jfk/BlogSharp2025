@@ -14,8 +14,12 @@ public class InMemoryAuthorDaoStub : IAuthorDao
 
     public int Create(Author author)
     {
-        var newId = _authors.Max(author => author.Id) + 1;
-        author.Id = newId;
+        var newId = 1;
+        if (_authors.Any())
+        {
+           newId = _authors.Max(author => author.Id) + 1;
+
+        } author.Id = newId;
         _authors.Add(author);
         return newId;
     }

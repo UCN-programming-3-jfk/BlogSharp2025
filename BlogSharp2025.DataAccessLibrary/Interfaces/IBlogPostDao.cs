@@ -5,6 +5,7 @@ public interface IBlogPostDao
 {
     BlogPost? GetOne(int id);
     IEnumerable<BlogPost> GetAll();
+    IEnumerable<BlogPost> GetByAuthor(int authorId);
     bool Delete(int id);
     bool Update(BlogPost blogPost);
     int Create(BlogPost blogPost);
