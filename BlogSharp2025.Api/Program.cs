@@ -23,10 +23,12 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         //Register the AuthorDao for MSSqlServer for dependency injection
-        //builder.Services.AddScoped<IAuthorDao>(
-         //   (_) => new AuthorDao(_connectionString));
+        builder.Services.AddScoped<IAuthorDao>(
+            (_) => new AuthorDao(_connectionString));
+        builder.Services.AddScoped<IBlogPostDao>(
+            (_) => new BlogPostDao(_connectionString));
 
-        builder.Services.AddScoped<IAuthorDao, InMemoryAuthorDaoStub>();
+        //builder.Services.AddScoped<IAuthorDao, InMemoryAuthorDaoStub>();
 
         var app = builder.Build();
 

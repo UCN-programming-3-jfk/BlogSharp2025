@@ -4,7 +4,7 @@ namespace BlogSharp2025.DataAccessLibrary.Model;
 public class Author
 {
     #region Properties
-    public int Id { get; internal set; }
+    public int Id { get; set; }
     public string Email { get; set; }
     public string PasswordHash { get; set; }
     public string BlogTitle { get; set; }
@@ -27,6 +27,6 @@ public class Author
     {
         Email = email;
         BlogTitle = blogTitle;
-    } 
+    }
     #endregion
 }

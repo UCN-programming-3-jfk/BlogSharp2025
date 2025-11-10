@@ -2,7 +2,7 @@ namespace BlogSharp2025.DataAccessLibrary.Model;
 public class BlogPost
 {
     #region Properties
-    public int Id { get; internal set; }
+    public int Id { get; set; }
     public string Title { get; set; }
     public string TextBody { get; set; }
     public DateTime CreationDate { get; set; }
@@ -12,6 +12,7 @@ public class BlogPost
     #endregion
 
     #region Constructors
+    public BlogPost(){}
     public BlogPost(int id, string title, string textBody, DateTime creationDate, int fK_Author_Id)
     {
         Id = id;
@@ -28,5 +29,7 @@ public class BlogPost
         CreationDate = creationDate;
         FK_Author_Id = fkAuthorId;
     }
+
+
     #endregion
 }
