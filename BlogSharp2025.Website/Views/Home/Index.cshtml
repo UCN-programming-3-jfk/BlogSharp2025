@@ -12,7 +12,10 @@
         <tr>
            
             <th>@Html.DisplayNameFor(model => model.Title)</th>
-            <th>@Html.DisplayNameFor(model => model.CreationDate)</th></tr>
+            <th>@Html.DisplayNameFor(model => model.CreationDate)</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
@@ -22,7 +25,21 @@
                     "Details",
                     "BlogPost",
                     new { id=item.Id })</td>
-            <td>@Html.DisplayFor(modelItem => item.CreationDate)</td>          
+            <td>@Html.DisplayFor(modelItem => item.CreationDate)</td>
+
+            <td>
+                @Html.ActionLink("Edit",
+                                "Edit",
+                                "BlogPost",
+                                new { id = item.Id })
+            </td>
+            <td>
+                <a href ="/blogpost/delete/@item.Id" onclick="javascript:return confirm('Delete? Really?')">Delete</a>
+               @*  @Html.ActionLink("Delete",
+                                "Delete",
+                                "BlogPost",
+                                new { id = item.Id }, ) *@
+            </td>
         </tr>
 }
     </tbody>

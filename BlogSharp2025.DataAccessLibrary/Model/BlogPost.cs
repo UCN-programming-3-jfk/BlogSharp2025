@@ -1,9 +1,16 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace BlogSharp2025.DataAccessLibrary.Model;
 public class BlogPost
 {
     #region Properties
     public int Id { get; set; }
+
+    [Required]
+    [StringLength(50)]
     public string Title { get; set; }
+
+    [Required]
     public string TextBody { get; set; }
     public DateTime CreationDate { get; set; }
 
