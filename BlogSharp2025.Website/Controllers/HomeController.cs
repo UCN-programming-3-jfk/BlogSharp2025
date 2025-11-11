@@ -13,7 +13,10 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View(_blogPostApiClient.GetAll());
+        //HACK: Create an API method which only returns 10 latest
+        var allBlogposts = _blogPostApiClient.GetAll();
+        var tenLatest = allBlogposts.OrderByDescending(x => x.CreationDate).Take(10);
+        return View(tenLatest);
     }
 
     public IActionResult Privacy()

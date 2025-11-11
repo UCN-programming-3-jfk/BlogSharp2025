@@ -1,0 +1,17 @@
+﻿@model BlogSharp2025.DataAccessLibrary.Model.BlogPost
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div>
+    <h4>@Model.Title</h4>
+    <hr />
+    <div class="row">
+        <b>@Html.DisplayFor(model => model.CreationDate)</b>
+        <p>
+            @Html.DisplayFor(model => model.TextBody)
+        </p>
+    </div>
+</div>
