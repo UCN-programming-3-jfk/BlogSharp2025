@@ -29,4 +29,10 @@ public class Author
         BlogTitle = blogTitle;
     }
     #endregion
+
+    public override string ToString()
+    {
+        return this.Email;
+    }
+
 }
