@@ -18,8 +18,10 @@ public class BlogPostController : Controller
 
     [HttpPost]
     public IActionResult Create(BlogPost blogpost) {
+        //TODO: try catch
+       var newId = _blogPostApiClient.Create(blogpost);
 
-        return Redirect("");
+        return RedirectToAction("Details", "BlogPost", new {Id = newId });
     
     }
 }

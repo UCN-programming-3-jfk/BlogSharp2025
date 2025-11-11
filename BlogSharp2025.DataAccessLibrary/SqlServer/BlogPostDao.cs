@@ -10,6 +10,8 @@ public class BlogPostDao : BaseDao, IBlogPostDao
 
     public int Create(BlogPost blogPost)
     {
+        //TODO: move to database with default value for CreationDate
+        blogPost.CreationDate = DateTime.Now;
         var query = @"INSERT INTO BlogPost (Title, TextBody, CreationDate, FK_Author_Id)
                       OUTPUT INSERTED.Id
                       VALUES (@Title, @TextBody, @CreationDate, @FK_Author_Id);";
