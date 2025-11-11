@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlogSharp2025.ApiClient\BlogSharp2025.ApiClient.csproj" />
+    <ProjectReference Include="..\BlogSharp2025.DataAccessLibrary\BlogSharp2025.DataAccessLibrary.csproj" />
+  </ItemGroup>
+
+</Project>
