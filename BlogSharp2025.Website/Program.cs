@@ -1,4 +1,5 @@
 using BlogSharp2025.DataAccessLibrary.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace BlogSharp2025.Website;
 
@@ -7,6 +8,9 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+       .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme);
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();

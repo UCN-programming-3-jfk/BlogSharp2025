@@ -1,9 +1,12 @@
 ﻿using BlogSharp2025.ApiClient;
 using BlogSharp2025.DataAccessLibrary.Interfaces;
 using BlogSharp2025.DataAccessLibrary.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogSharp2025.Website.Controllers;
+
+[Authorize]
 public class BlogPostController : Controller
 {
     IBlogPostDao _blogPostApiClient = new BlogPostApiClient("https://localhost:7249");
